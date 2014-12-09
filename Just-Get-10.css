@@ -1,7 +1,9 @@
+/*General*/
 div {
   display: inline-block;
   text-align: center;
 }
+/*Controls*/
 div#newGame {
   background-color: #0099ff;
   width: 85px;
@@ -10,4 +12,11 @@ div#newGame {
 div#newGame p {
   margin: 0px;
   padding: 8px 0px;
+}
+/*Game Board*/
+div.box {
+  width: 40px;
+  height: 40px;
+  background-color: #dddddd;
+  margin: 2px 0px;
 }
