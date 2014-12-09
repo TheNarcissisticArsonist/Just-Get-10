@@ -1,0 +1,13 @@
+div {
+  display: inline-block;
+  text-align: center;
+}
+div#newGame {
+  background-color: #0099ff;
+  width: 85px;
+  height: 34px;
+}
+div#newGame p {
+  margin: 0px;
+  padding: 8px 0px;
+}
