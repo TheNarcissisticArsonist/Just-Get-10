@@ -72,11 +72,9 @@ var boxes = {
   rc88 = 0;
 }
 
-function highlightBox(box, color) {
 
-}
 
 $(".box").click(function() {
-  var box = $(this).attr("id");
-
+  var clicked = $(this).attr("id");
+  highlightBoxes(gatherBoxes(clicked));
 })
