@@ -92,6 +92,17 @@ function newGame() {
     }
   }
   console.log(boxes);
+  updateBoard();
+}
+
+function updateBoard() {
+  var rc;
+  for(i=1; i<=8; i++) {
+    for(j=1; j<=8; j++) {
+      rc = "rc" + String(i) + String(j);
+      $("#" + rc).html("<p>" + boxes[rc] + "</p>");
+    }
+  }
 }
 
 $("#newGame").click(function() {
