@@ -227,7 +227,25 @@ function colorBoard() {
   }
 }
 function highlight(picked) {
-  picked.css
+  $("#" + picked).css("background-color", "#ffffff");
+  selected[picked] = true;
+}
+function checkNext(picked) {
+  var r = Number(picked.slice(3, 4));
+  var c = Number(picked.slice(4));
+}
+function combine(picked) {
+
+}
+function unHighlightAll() {
+  var rc;
+  for(i=1; i<=8; i++) {
+    for(j=1; j<=8; j++) {
+      rc = "rc" + String(i) + String(j);
+      selected[rc] = false;
+      colorBoard();
+    }
+  }
 }
 
 $("#newGame").click(function() {
@@ -236,6 +254,7 @@ $("#newGame").click(function() {
 
 $("div.box").click(function() {
   var clicked = $(this).attr("id");
+  window.alert(clicked);
   if(selected[clicked] == false) {
     highlight(clicked);
     checkNext(clicked);
