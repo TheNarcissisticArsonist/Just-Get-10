@@ -71,6 +71,79 @@ var board = {
   rc87: 0,
   rc88: 0
 }
+var selected = {
+  rc11: false,
+  rc12: false,
+  rc13: false,
+  rc14: false,
+  rc15: false,
+  rc16: false,
+  rc17: false,
+  rc18: false,
+
+  rc21: false,
+  rc22: false,
+  rc23: false,
+  rc24: false,
+  rc25: false,
+  rc26: false,
+  rc27: false,
+  rc28: false,
+
+  rc31: false,
+  rc32: false,
+  rc33: false,
+  rc34: false,
+  rc35: false,
+  rc36: false,
+  rc37: false,
+  rc38: false,
+
+  rc41: false,
+  rc42: false,
+  rc43: false,
+  rc44: false,
+  rc45: false,
+  rc46: false,
+  rc47: false,
+  rc48: false,
+
+  rc51: false,
+  rc52: false,
+  rc53: false,
+  rc54: false,
+  rc55: false,
+  rc56: false,
+  rc57: false,
+  rc58: false,
+
+  rc61: false,
+  rc62: false,
+  rc63: false,
+  rc64: false,
+  rc65: false,
+  rc66: false,
+  rc67: false,
+  rc68: false,
+
+  rc71: false,
+  rc72: false,
+  rc73: false,
+  rc74: false,
+  rc75: false,
+  rc76: false,
+  rc77: false,
+  rc78: false,
+
+  rc81: false,
+  rc82: false,
+  rc83: false,
+  rc84: false,
+  rc85: false,
+  rc86: false,
+  rc87: false,
+  rc88: false
+};
 
 function newGame() {
   var val;
@@ -94,7 +167,6 @@ function newGame() {
   console.log(board);
   updateBoard();
 }
-
 function updateBoard() {
   var rc;
   for(i=1; i<=8; i++) {
@@ -105,7 +177,6 @@ function updateBoard() {
   }
   colorBoard();
 }
-
 function colorBoard() {
   var rc;
   for(i=1; i<=8; i++) {
@@ -155,7 +226,22 @@ function colorBoard() {
     }
   }
 }
+function highlight(picked) {
+  picked.css
+}
 
 $("#newGame").click(function() {
   newGame();
-})
+});
+
+$("div.box").click(function() {
+  var clicked = $(this).attr("id");
+  if(selected[clicked] == false) {
+    highlight(clicked);
+    checkNext(clicked);
+  }
+  else if(selected[clicked] == true) {
+    combine(clicked);
+    unHighlightAll();
+  }
+});
