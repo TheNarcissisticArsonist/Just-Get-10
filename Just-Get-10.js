@@ -93,4 +93,7 @@ function newGame() {
   }
   console.log(boxes);
 }
-newGame();
+
+$("#newGame").click(function() {
+  newGame();
+})
