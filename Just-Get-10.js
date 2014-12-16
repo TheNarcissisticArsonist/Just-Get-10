@@ -74,57 +74,6 @@ var boxes = {
 
 var selectedBoxes = [];
 
-}
-function selectBoxes(centerR, centerC) {
-
-}
-function propogateOut(startR, startC, dir) {
-  //1 up
-  //2 right
-  //3 down
-  //4 left
-  switch(dir) {
-    case 1:
-      if(boxes["rc" + String(startR - 1) + String(startC)] == boxes["rc" + String(startR) + String(StartC)]) {
-        selectedBoxes.push("rc" + String(startR - 1) + String(startC));
-        propogateOut(startR - 1, startC, 1);
-        propogateOut(startR - 1, startC, 2);
-        propogateOut(startR - 1, startC, 4);
-      }
-      return false;
-    case 2:
-      if(boxes["rc" + String(startR) + String(startC + 1)] == boxes["rc" + String(startR) + String(startC)]) {
-        selectedBoxes.push("rc" + String(startR) + String(C + 1));
-        propogateOut(startR, startC + 1, 1);
-        propogateOut(startR, startC + 1, 2);
-        propogateOut(startR, startC + 1, 3);
-      }
-      return false;
-    case 3:
-      if(boxes["rc" + String(startR + 1) + String(startC)] == boxes["rc" + String(startR) + String(startC)]) {
-        selectedBoxes.push("rc" + String(startR + 1) + String(startC));
-        propogateOut(startR + 1, startC, 2);
-        propogateOut(startR + 1, startC, 3);
-        propogateOut(startR + 1, startC, 4);
-      }
-      return false;
-    case 4:
-      if(boxes["rc" + String(startR) + String(startC - 1)] == boxes["rc" + String(startR) + String(startC)]) {
-        selectedBoxes.push("rc" + String(startR + 1) + String(startC));
-        propogateOut(startR, startC - 1, 1);
-        propogateOut(startR, startC - 1, 3);
-        propogateOut(startR, startC - 1, 4);
-      }
-    return false;
-    default:
-      alert("Error in propogateOut function");
-  }
-}
-function filterExtras(clean) {
-
-}
-
 $(".box").click(function() {
-  var clicked = $(this).attr("id");
 
-})
+});
