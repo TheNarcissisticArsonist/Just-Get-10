@@ -1,4 +1,4 @@
-var boxes = {
+var board = {
   rc11: 0,
   rc12: 0,
   rc13: 0,
@@ -78,20 +78,20 @@ function newGame() {
     for(j=1; j<=8; j++) {
       val = Math.floor(Math.random() * 10 + 1);
       if(val == 1) {
-        boxes["rc" + String(i) + String(j)] = 4;
+        board["rc" + String(i) + String(j)] = 4;
       }
       else if(val <= 3) {
-        boxes["rc" + String(i) + String(j)] = 3;
+        board["rc" + String(i) + String(j)] = 3;
       }
       else if(val <= 6) {
-        boxes["rc" + String(i) + String(j)] = 2;
+        board["rc" + String(i) + String(j)] = 2;
       }
       else {
-        boxes["rc" + String(i) + String(j)] = 1;
+        board["rc" + String(i) + String(j)] = 1;
       }
     }
   }
-  console.log(boxes);
+  console.log(board);
   updateBoard();
 }
 
@@ -100,7 +100,58 @@ function updateBoard() {
   for(i=1; i<=8; i++) {
     for(j=1; j<=8; j++) {
       rc = "rc" + String(i) + String(j);
-      $("#" + rc).html("<p>" + boxes[rc] + "</p>");
+      $("#" + rc).html("<p>" + board[rc] + "</p>");
+    }
+  }
+  colorBoard();
+}
+
+function colorBoard() {
+  var rc;
+  for(i=1; i<=8; i++) {
+    for(j=1; j<=8; j++) {
+      rc = "rc" + String(i) + String(j);
+      switch(board[rc]) {
+        case 1:
+          //lime green
+          $("#" + rc).css("background-color", "#00ff00");
+          break;
+        case 2:
+          //Yellow
+          $("#" + rc).css("background-color", "#ffff00");
+          break;
+        case 3:
+          //Pale orange
+          $("#" + rc).css("background-color", "#ff9900");
+          break;
+        case 4:
+          //Red
+          $("#" + rc).css("background-color", "#ff0000");
+          break;
+        case 5:
+          //Magenta
+          $("#" + rc).css("bacgkround-color", "#ff0066");
+          break;
+        case 6:
+          //Lavender
+          $("#" + rc).css("background-color", "#ff00ff");
+          break;
+        case 7:
+          //Pale blue
+          $("#" + rc).css("background-color", "#6666ff");
+          break;
+        case 8:
+          //Blue
+          $("#" + rc).css("background-color", "#0000ff");
+          break;
+        case 9:
+          //Light blue
+          $("#" + rc).css("background-color", "#00ffff");
+          break;
+        default:
+          //Grey
+          $("#" + rc).css("background-color", "#dddddd");
+      }
     }
   }
 }
