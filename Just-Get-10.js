@@ -1,4 +1,4 @@
-var board = {
+var boxes = {
   rc11: 0,
   rc12: 0,
   rc13: 0,
@@ -7,6 +7,7 @@ var board = {
   rc16: 0,
   rc17: 0,
   rc18: 0,
+
   rc21: 0,
   rc22: 0,
   rc23: 0,
@@ -15,6 +16,7 @@ var board = {
   rc26: 0,
   rc27: 0,
   rc28: 0,
+
   rc31: 0,
   rc32: 0,
   rc33: 0,
@@ -23,6 +25,7 @@ var board = {
   rc36: 0,
   rc37: 0,
   rc38: 0,
+
   rc41: 0,
   rc42: 0,
   rc43: 0,
@@ -31,6 +34,7 @@ var board = {
   rc46: 0,
   rc47: 0,
   rc48: 0,
+
   rc51: 0,
   rc52: 0,
   rc53: 0,
@@ -39,6 +43,7 @@ var board = {
   rc56: 0,
   rc57: 0,
   rc58: 0,
+
   rc61: 0,
   rc62: 0,
   rc63: 0,
@@ -47,6 +52,7 @@ var board = {
   rc66: 0,
   rc67: 0,
   rc68: 0,
+
   rc71: 0,
   rc72: 0,
   rc73: 0,
@@ -55,6 +61,7 @@ var board = {
   rc76: 0,
   rc77: 0,
   rc78: 0,
+
   rc81: 0,
   rc82: 0,
   rc83: 0,
@@ -62,5 +69,28 @@ var board = {
   rc85: 0,
   rc86: 0,
   rc87: 0,
-  rc88: 0,
-};
+  rc88: 0
+}
+
+function newGame() {
+  var val;
+  for(i=1; i<=8; i++) {
+    for(j=1; j<=8; j++) {
+      val = Math.floor(Math.random() * 10 + 1);
+      if(val == 1) {
+        boxes["rc" + String(i) + String(j)] = 4;
+      }
+      else if(val <= 3) {
+        boxes["rc" + String(i) + String(j)] = 3;
+      }
+      else if(val <= 6) {
+        boxes["rc" + String(i) + String(j)] = 2;
+      }
+      else {
+        boxes["rc" + String(i) + String(j)] = 1;
+      }
+    }
+  }
+  console.log(boxes);
+}
+newGame();
