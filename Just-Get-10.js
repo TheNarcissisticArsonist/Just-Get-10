@@ -228,8 +228,9 @@ function colorBoard() {
   }
 }
 function highlight(picked) {
-  $("#" + picked).css("background-color", "#ffffff");
-  selected[picked] = true;
+  if(selected[picked] == true) {
+    $("#" + picked).css("background-color", "#ffffff");
+  }
 }
 function checkNext(picked) {
   r = Number(picked.slice(2, 3));
@@ -240,22 +241,30 @@ function checkNext(picked) {
   var left = "rc" + String(r) + String(c-1);
   if(board[up] == board[picked] && selected[up] == false) {
     selected[up] = true;
+    selected[picked] = true;
     highlight(up);
+    highlight(picked);
     checkNext(up);
   }
   if(board[left] == board[picked] && selected[left] == false) {
     selected[left] = true;
+    selected[picked] = true;
     highlight(left);
+    highlight(picked);
     checkNext(left);
   }
   if(board[down] == board[picked] && selected[down] == false) {
     selected[down] = true;
+    selected[picked] = true;
     highlight(down);
+    highlight(picked);
     checkNext(down);
   }
   if(board[right] == board[picked] && selected[right] == false) {
     selected[right] = true;
+    selected[picked] = true;
     highlight(right);
+    highlight(picked);
     checkNext(right);
   }
 }
@@ -281,7 +290,6 @@ $("#newGame").click(function() {
 $("div.box").click(function() {
   var clicked = $(this).attr("id");
   if(selected[clicked] == false) {
-    highlight(clicked);
     checkNext(clicked);
   }
   else if(selected[clicked] == true) {
