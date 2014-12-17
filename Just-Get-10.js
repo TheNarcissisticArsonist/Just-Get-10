@@ -231,8 +231,7 @@ function highlight(picked) {
   selected[picked] = true;
 }
 function checkNext(picked) {
-  var r = Number(picked.slice(3, 4));
-  var c = Number(picked.slice(4));
+
 }
 function combine(picked) {
 
@@ -254,7 +253,6 @@ $("#newGame").click(function() {
 
 $("div.box").click(function() {
   var clicked = $(this).attr("id");
-  window.alert(clicked);
   if(selected[clicked] == false) {
     highlight(clicked);
     checkNext(clicked);
