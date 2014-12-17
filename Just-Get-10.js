@@ -300,7 +300,30 @@ function fall() {
     }
   }
 }
-
+function fillNumbers() {
+  var rc;
+  var val;
+  for(i=1; i<=8; i++) {
+    for(j=1; j<=8; j++) {
+      rc = "rc" + String(i) + String(j);
+      if(board[rc] == 0) {
+        val = Math.floor(Math.random() * 10 + 1);
+        if(val == 1) {
+          board["rc" + String(i) + String(j)] = 4;
+        }
+        else if(val <= 3) {
+          board["rc" + String(i) + String(j)] = 3;
+        }
+        else if(val <= 6) {
+          board["rc" + String(i) + String(j)] = 2;
+        }
+        else {
+          board["rc" + String(i) + String(j)] = 1;
+        }
+      }
+    }
+  }
+}
 
 $("#newGame").click(function() {
   newGame();
@@ -321,6 +344,7 @@ $("div.box").click(function() {
       }
     }
     fall();
+    fillNumbers();
     colorBoard();
     updateBoard();
   }
