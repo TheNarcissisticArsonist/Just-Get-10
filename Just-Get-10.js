@@ -320,7 +320,7 @@ function fillNumbers() {
         else {
           board["rc" + String(i) + String(j)] = 1;
         }
-        $("#" + rc).css("display", "none").delay(7).fadeIn("fast");
+        $("#" + rc).css("display", "none").delay(2).fadeIn("fast");
       }
     }
   }
@@ -333,6 +333,14 @@ $("#newGame").click(function() {
 $("div.box").click(function() {
   var clicked = $(this).attr("id");
   if(selected[clicked] == false) {
+    for(i=1; i<=8; i++) {
+      for(j=1; j<=8; j++) {
+        rc = "rc" + String(i) + String(j);
+        selected[rc] = false;
+      }
+    }
+    updateBoard();
+    colorBoard();
     checkNext(clicked);
   }
   else if(selected[clicked] == true) {
