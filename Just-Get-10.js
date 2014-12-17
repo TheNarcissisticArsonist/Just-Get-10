@@ -232,7 +232,32 @@ function highlight(picked) {
   selected[picked] = true;
 }
 function checkNext(picked) {
-
+  r = Number(picked.slice(2, 3));
+  c = Number(picked.slice(3, 4));
+  var up = "rc" + String(r-1) + String(c);
+  var right = "rc" + String(r) + String(c+1);
+  var down = "rc" + String(r+1) + String(c);
+  var left = "rc" + String(r) + String(c-1);
+  if(board[up] == board[picked] && selected[up] == false) {
+    selected[up] = true;
+    highlight(up);
+    checkNext(up);
+  }
+  if(board[left] == board[picked] && selected[left] == false) {
+    selected[left] = true;
+    highlight(left);
+    checkNext(left);
+  }
+  if(board[down] == board[picked] && selected[down] == false) {
+    selected[down] = true;
+    highlight(down);
+    checkNext(down);
+  }
+  if(board[right] == board[picked] && selected[right] == false) {
+    selected[right] = true;
+    highlight(right);
+    checkNext(right);
+  }
 }
 function combine(picked) {
 
