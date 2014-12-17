@@ -282,6 +282,25 @@ function combine(picked) {
     }
   }
 }
+function fall() {
+  var rc;
+  for(n=1; n<=8; n++) {
+    for(i=1; i<=8; i++) {
+      for(j=1; j<=8; j++) {
+        rc = "rc" + String(i) + String(j);
+        up = "rc" + String(i-1) + String(j);
+        if(board[rc] == 0) {
+          board[rc] = board[up];
+          board[up] = 0;
+        }
+        if(board[rc] == undefined) {
+          board[rc] = 0;
+        }
+      }
+    }
+  }
+}
+
 
 $("#newGame").click(function() {
   newGame();
@@ -301,6 +320,7 @@ $("div.box").click(function() {
         selected[rc] = false;
       }
     }
+    fall();
     colorBoard();
     updateBoard();
   }
