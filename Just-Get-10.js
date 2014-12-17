@@ -162,6 +162,7 @@ function newGame() {
       else {
         board["rc" + String(i) + String(j)] = 1;
       }
+      selected["rc" + String(i) + String(j)] = false;
     }
   }
   console.log(board);
@@ -236,16 +237,6 @@ function checkNext(picked) {
 function combine(picked) {
 
 }
-function unHighlightAll() {
-  var rc;
-  for(i=1; i<=8; i++) {
-    for(j=1; j<=8; j++) {
-      rc = "rc" + String(i) + String(j);
-      selected[rc] = false;
-      colorBoard();
-    }
-  }
-}
 
 $("#newGame").click(function() {
   newGame();
@@ -259,6 +250,13 @@ $("div.box").click(function() {
   }
   else if(selected[clicked] == true) {
     combine(clicked);
-    unHighlightAll();
+    var rc;
+    for(i=1; i<=8; i++) {
+      for(j=1; j<=8; j++) {
+        rc = "rc" + String(i) + String(j);
+        selected[rc] = false;
+      }
+    }
+    colorBoard();
   }
 });
