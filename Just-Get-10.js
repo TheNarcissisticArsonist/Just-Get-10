@@ -260,7 +260,18 @@ function checkNext(picked) {
   }
 }
 function combine(picked) {
-
+  var rc;
+  var final = board[picked] + 1;
+  board[picked] = final;
+  selected[picked] = false;
+  for(i=1; i<=8; i++) {
+    for(j=1; j<=8; j++) {
+      rc = "rc" + String(i) + String(j);
+      if(selected[rc] == true) {
+        board[rc] = 0;
+      }
+    }
+  }
 }
 
 $("#newGame").click(function() {
@@ -283,5 +294,6 @@ $("div.box").click(function() {
       }
     }
     colorBoard();
+    updateBoard();
   }
 });
