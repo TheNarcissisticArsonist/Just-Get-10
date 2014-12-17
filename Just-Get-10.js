@@ -320,6 +320,7 @@ function fillNumbers() {
         else {
           board["rc" + String(i) + String(j)] = 1;
         }
+        $("#" + rc).css("display", "none").delay(7).fadeIn("fast");
       }
     }
   }
