@@ -204,7 +204,7 @@ function colorBoard() {
           break;
         case 5:
           //Magenta
-          $("#" + rc).css("bacgkround-color", "#ff0066");
+          $("#" + rc).css("background-color", "#ff0066");
           break;
         case 6:
           //Lavender
